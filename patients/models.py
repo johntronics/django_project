@@ -1,6 +1,6 @@
 from django.db import models
 
-class Patient(models.fields.Model):
+class Patient(models.Model):
     GENDER_CHOICES = [(0, 'Female'), (1, 'Male')]
     
     age = models.FloatField(help_text="Age of the patient (years)")
