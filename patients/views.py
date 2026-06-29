@@ -5,6 +5,9 @@ from rest_framework import status
 from django.db.models import Avg, Count
 from .models import Patient, ClinicalRecord
 from .serializers import PatientSerializer, ClinicalRecordSerializer
+from django.http import HttpResponse
+import sys
+import django
 
 #Endpoint 1: Create New Patient (POST endpoint)
 @api_view(['POST'])
@@ -95,3 +98,15 @@ def recent_followups(request):
         "timeframe": "Follow-up period <= 30 days",
         "results": serializer.data
     })
+
+#Landing Page ---
+def api_root_view(request):
+    """
+    Renders the main API documentation page using Django templates.
+    Passes system information into the template context.
+    """
+    context = {
+        'python_version': sys.version.split(' ')[0],
+        'django_version': django.get_version(),
+    }
+    return render(request, 'index.html', context)

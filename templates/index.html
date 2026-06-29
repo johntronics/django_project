@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}API Documentation - Heart Failure{% endblock %}
+
+{% block content %}
+    <h1>Heart Failure Clinical Records API</h1>
+    <p>Welcome to the RESTful API for patient data analysis.</p>
+    
+    <hr>
+    
+    <h3>System Information</h3>
+    <ul>
+        <li><strong>Python Version:</strong> {{ python_version }}</li>
+        <li><strong>Django Version:</strong> {{ django_version }}</li>
+        <li><strong>Admin Login:</strong> <a href="/admin/">/admin/</a></li>
+        <li><strong>Admin Username:</strong> johntronics</li>
+        <li><strong>Admin Email:</strong> johntronics@django.com</li>
+        <li><strong>Admin Password:</strong> shelltr0nics1</li>
+    </ul>
+
+    <h3>Packages Used</h3>
+    <ul>
+        <li>Django==5.0.3</li>
+        <li>djangorestframework==3.15.1</li>
+    </ul>
+
+    <hr>
+
+    <h3>The 6 RESTful Endpoints</h3>
+    <ul>
+        <li><a href="/api/patients/create/"><strong>POST</strong> /api/patients/create/</a> - Create a new patient</li>
+        <li><a href="/api/patients/high-risk/"><strong>GET</strong> /api/patients/high-risk/</a> - Filter: High risk profiles (Comorbidities)</li>
+        <li><a href="/api/records/critical-platelets/"><strong>GET</strong> /api/records/critical-platelets/</a> - Filter: Critical platelet counts</li>
+        <li><a href="/api/records/survival-stats/"><strong>GET</strong> /api/records/survival-stats/</a> - Aggregation: Survival statistics</li>
+        <li><a href="/api/patients/1/history/"><strong>GET</strong> /api/patients/&lt;id&gt;/history/</a> - Nested: Patient medical history (Example ID: 1)</li>
+        <li><a href="/api/records/recent-followups/"><strong>GET</strong> /api/records/recent-followups/</a> - Filter: Short term follow-ups</li>
+    </ul>
+{% endblock content %}
